@@ -15,8 +15,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'io.springfox:springfox-swagger'
-	implementation 'io.springfox:springfox-swagger-ui'
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	implementation 'org.modelmapper:modelmapper:3.1.1'
 
 	runtimeOnly 'com.h2database:h2'
