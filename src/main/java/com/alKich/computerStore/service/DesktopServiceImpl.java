@@ -33,8 +33,11 @@ public class DesktopServiceImpl implements DesktopService {
     }
 
     @Override
-    public Desktop updateDesktop(Long id, Desktop updatedDesktop) {
-        Desktop desktop = getDesktopById(id);
+    public Desktop updateDesktop(String serial, Desktop updatedDesktop) {
+        Desktop desktop = desktopRepository.findBySerialNumber(serial).orElseThrow(
+                () -> new ResourceNotFoundException("Desktop not found, serial number:" + serial)
+        );
+        updatedDesktop.setId(desktop.getId());
         modelMapper.map(updatedDesktop, desktop);
         return desktopRepository.save(desktop);
     }

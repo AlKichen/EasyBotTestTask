@@ -11,5 +11,5 @@ public interface DesktopService {
 
     Desktop addDesktop(Desktop desktop);
 
-    Desktop updateDesktop(Long id, Desktop updatedDesktop);
+    Desktop updateDesktop(String serialNumber, Desktop updatedDesktop);
 }

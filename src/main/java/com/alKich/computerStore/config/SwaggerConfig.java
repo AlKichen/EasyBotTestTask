@@ -42,7 +42,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
                 .description("Магазин, торгующий компьютерами и комплектующими")
                 .version("1.0.0")
                 .license("Apache License Version 2.0")
-                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
+                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"") //TODO
                 .build();
     }
 }

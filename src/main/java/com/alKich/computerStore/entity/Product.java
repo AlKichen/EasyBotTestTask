@@ -1,5 +1,6 @@
 package com.alKich.computerStore.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.persistence.MappedSuperclass;
 public abstract class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
 
     private String serialNumber;
