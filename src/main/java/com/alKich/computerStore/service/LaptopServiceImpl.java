@@ -33,9 +33,12 @@ public class LaptopServiceImpl implements LaptopService {
     }
 
     @Override
-    public Laptop updateLaptop(Long id, Laptop updatedLaptop) {
-        Laptop laptopById = getLaptopById(id);
-        modelMapper.map(updatedLaptop, laptopById);
-        return laptopRepository.save(laptopById);
+    public Laptop updateLaptop(String serial, Laptop updatedLaptop) {
+        Laptop laptop = laptopRepository.findBySerialNumber(serial).orElseThrow(
+                () -> new ResourceNotFoundException("Desktop not found, serial number:" + serial)
+        );
+        updatedLaptop.setId(laptop.getId());
+        modelMapper.map(updatedLaptop, laptop);
+        return laptopRepository.save(laptop);
     }
 }

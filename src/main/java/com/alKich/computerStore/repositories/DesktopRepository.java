@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface DesktopRepository extends JpaRepository<Desktop, Long> {
-    public Optional<Desktop> findBySerialNumber(String serialNumber);
+    Optional<Desktop> findBySerialNumber(String serialNumber);
 
 }

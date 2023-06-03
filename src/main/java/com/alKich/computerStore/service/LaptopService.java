@@ -11,5 +11,5 @@ public interface LaptopService {
 
     Laptop addLaptop(Laptop laptop);
 
-    Laptop updateLaptop(Long id, Laptop updatedLaptop);
+    Laptop updateLaptop(String serial, Laptop updatedLaptop);
 }
