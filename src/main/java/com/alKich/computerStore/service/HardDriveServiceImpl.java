@@ -32,9 +32,12 @@ public class HardDriveServiceImpl implements HardDriveService {
     }
 
     @Override
-    public HardDrive updateHardDrive(Long id, HardDrive updatedHardDrive) {
-        HardDrive hardDriveById = getHardDriveById(id);
-        modelMapper.map(updatedHardDrive, hardDriveById);
-        return hardDriveRepository.save(hardDriveById);
+    public HardDrive updateHardDrive(String serial, HardDrive updatedHardDrive) {
+        HardDrive hardDrive = hardDriveRepository.findBySerialNumber(serial).orElseThrow(
+                () -> new ResourceNotFoundException("Desktop not found, serial number:" + serial)
+        );
+        updatedHardDrive.setId(hardDrive.getId());
+        modelMapper.map(updatedHardDrive, hardDrive);
+        return hardDriveRepository.save(hardDrive);
     }
 }

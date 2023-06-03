@@ -1,6 +1,5 @@
 package com.alKich.computerStore.repositories;
 
-import com.alKich.computerStore.entity.Laptop;
 import com.alKich.computerStore.entity.Monitor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

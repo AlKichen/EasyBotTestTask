@@ -11,5 +11,5 @@ public interface HardDriveService {
 
     HardDrive addHardDrive(HardDrive hardDrive);
 
-    HardDrive updateHardDrive(Long id, HardDrive updatedHardDrive);
+    HardDrive updateHardDrive(String serial, HardDrive updatedHardDrive);
 }
