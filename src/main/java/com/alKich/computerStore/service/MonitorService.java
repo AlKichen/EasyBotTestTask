@@ -11,5 +11,5 @@ public interface MonitorService {
 
     Monitor addMonitor(Monitor monitor);
 
-    Monitor updateMonitor(Long id, Monitor updatedMonitor);
+    Monitor updateMonitor(String serial, Monitor updatedMonitor);
 }

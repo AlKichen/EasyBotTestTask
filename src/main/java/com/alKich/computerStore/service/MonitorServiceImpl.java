@@ -1,5 +1,6 @@
 package com.alKich.computerStore.service;
 
+import com.alKich.computerStore.entity.Laptop;
 import com.alKich.computerStore.entity.Monitor;
 import com.alKich.computerStore.exception.ResourceNotFoundException;
 import com.alKich.computerStore.repositories.MonitorRepository;
@@ -32,9 +33,12 @@ public class MonitorServiceImpl implements MonitorService {
     }
 
     @Override
-    public Monitor updateMonitor(Long id, Monitor updatedMonitor) {
-        Monitor monitorById = getMonitorById(id);
-        modelMapper.map(updatedMonitor, monitorById);
-        return monitorRepository.save(monitorById);
+    public Monitor updateMonitor(String serial, Monitor updatedMonitor) {
+        Monitor monitor = monitorRepository.findBySerialNumber(serial).orElseThrow(
+                () -> new ResourceNotFoundException("Desktop not found, serial number:" + serial)
+        );
+        updatedMonitor.setId(monitor.getId());
+        modelMapper.map(updatedMonitor, monitor);
+        return monitorRepository.save(monitor);
     }
 }
